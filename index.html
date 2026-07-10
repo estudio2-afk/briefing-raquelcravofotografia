@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Briefing do Ensaio — Raquel Cravo Fotografia</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="page">
+  <header class="hero">
+    <p class="eyebrow">RAQUEL CRAVO FOTOGRAFIA</p>
+    <h1>Formulário de Briefing — Ensaio Fotográfico</h1>
+    <p class="intro">Antes do seu ensaio, quero entender um pouco mais sobre você — sua essência, sua história e o que você quer que essas fotos transmitam. Responda com calma, direto neste formulário. Não existe resposta certa ou errada. 🤍</p>
+  </header>
+
+  <form id="briefing-form" novalidate>
+    <section class="field-group">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" name="nome" required>
+    </section>
+
+    <section class="section">
+      <h2>Sobre o objetivo da sessão</h2>
+
+      <div class="field-group">
+        <label for="q1">1. Essa sessão é voltada para imagem pessoal ou profissional?</label>
+        <input type="text" id="q1" name="q1_objetivo">
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>O que você quer transmitir</h2>
+
+      <div class="field-group">
+        <label for="q2">2. Se sua imagem contasse uma história em uma palavra só, qual seria?</label>
+        <input type="text" id="q2" name="q2_palavra">
+      </div>
+
+      <div class="field-group">
+        <label for="q3">3. Como você quer que as pessoas se sintam ao ver essas fotos?</label>
+        <textarea id="q3" name="q3_sentimento" rows="3"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="q4">4. Existe algo que você sente que sua imagem atual não representa bem sobre você?</label>
+        <textarea id="q4" name="q4_nao_representa" rows="3"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="q5">5. Qual sensação você quer passar? <span>(acolhimento, autoridade, leveza, sofisticação, ousadia, ou outra — pode citar mais de uma)</span></label>
+        <textarea id="q5" name="q5_sensacao" rows="2"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="q6">6. Tem alguma característica sua que as pessoas não percebem à primeira vista, mas que você gostaria que aparecesse nas fotos?</label>
+        <textarea id="q6" name="q6_caracteristica" rows="3"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="q7">7. Onde essas fotos serão usadas? <span>(LinkedIn, site, redes sociais, materiais impressos, currículo...)</span></label>
+        <textarea id="q7" name="q7_uso" rows="2"></textarea>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Estilo e referências</h2>
+
+      <div class="field-group">
+        <label for="q8">8. Você já viu alguma foto (sua ou de outra pessoa) que pensou "é exatamente isso que eu quero"? Pode descrever ou colar um link.</label>
+        <textarea id="q8" name="q8_referencia" rows="3"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="arquivos">Se preferir, anexe prints ou fotos de referência</label>
+        <input type="file" id="arquivos" name="arquivos" accept="image/*,.pdf" multiple>
+        <p class="hint">Até 6 arquivos, 10MB cada (imagens ou PDF).</p>
+      </div>
+
+      <div class="field-group">
+        <label for="q9">9. Prefere um visual mais clean e minimalista ou mais cheio de personalidade e cor?</label>
+        <textarea id="q9" name="q9_estilo" rows="2"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="q10">10. Tem alguma cor, textura ou elemento que você ama (ou detesta) e gostaria de considerar?</label>
+        <textarea id="q10" name="q10_cor_textura" rows="2"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="q11">11. Se você pudesse descrever o clima da sessão em três palavras, quais seriam?</label>
+        <input type="text" id="q11" name="q11_clima">
+      </div>
+
+      <div class="field-group">
+        <label for="q12">12. Tem algum lugar, cenário ou ambiente que combina com a mensagem que você quer passar?</label>
+        <textarea id="q12" name="q12_cenario" rows="3"></textarea>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Praticidade</h2>
+
+      <div class="field-group">
+        <label for="q13">13. Como você se imagina no dia da sessão — mais produzida e elegante, ou mais natural e no seu estilo do dia a dia?</label>
+        <textarea id="q13" name="q13_producao" rows="2"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="q14">14. Tem alguma restrição ou insegurança que prefere que eu saiba antes? <span>(ângulo, parte do corpo, etc.)</span></label>
+        <textarea id="q14" name="q14_restricao" rows="3"></textarea>
+      </div>
+
+      <div class="field-group">
+        <label for="q15">15. Alguma referência de profissional ou marca que te inspira pelo posicionamento visual?</label>
+        <textarea id="q15" name="q15_inspiracao" rows="3"></textarea>
+      </div>
+    </section>
+
+    <button type="submit" id="submit-btn">Enviar respostas</button>
+    <p id="form-status" role="status"></p>
+  </form>
+
+  <p class="thanks">Obrigada por compartilhar um pouco de você.<br>Qualquer dúvida, me chama. 🤍</p>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
