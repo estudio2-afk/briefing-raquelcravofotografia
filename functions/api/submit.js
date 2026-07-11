@@ -48,13 +48,13 @@ export async function onRequestPost(context) {
   const safeName = nome.replace(/[^a-zA-Z0-9-_]+/g, "_").slice(0, 40) || "briefing";
   const prefix = `${Date.now()}-${safeName}`;
 
-  const uploadedKeys = [];
+  const uploadedUrls = [];
   for (const file of files) {
     const key = `${prefix}/${file.name}`;
     await env.BRIEFING_BUCKET.put(key, file.stream(), {
       httpMetadata: { contentType: file.type || "application/octet-stream" },
     });
-    uploadedKeys.push(key);
+    uploadedUrls.push(`${env.R2_PUBLIC_BASE_URL}/${key}`);
   }
 
   const rows = FIELDS.map(([label, key]) => {
@@ -63,12 +63,11 @@ export async function onRequestPost(context) {
     return `<p><strong>${escapeHtml(label)}</strong><br>${safeValue}</p>`;
   });
 
-  if (uploadedKeys.length) {
-    rows.push(
-      `<p><strong>Arquivos anexados</strong><br>${uploadedKeys
-        .map(escapeHtml)
-        .join("<br>")}<br><em>Disponíveis no bucket R2 (painel Cloudflare).</em></p>`
-    );
+  if (uploadedUrls.length) {
+    const links = uploadedUrls
+      .map((url) => `<a href="${escapeHtml(url)}">${escapeHtml(url.split("/").pop())}</a>`)
+      .join("<br>");
+    rows.push(`<p><strong>Arquivos anexados</strong><br>${links}</p>`);
   }
 
   const html = `<h2>Novo briefing de ensaio</h2><p><em>${new Date().toLocaleString("pt-BR")}</em></p>${rows.join("")}`;
