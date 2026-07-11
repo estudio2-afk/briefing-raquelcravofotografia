@@ -21,6 +21,14 @@ const MAX_FILES = 6;
 const MAX_FILE_BYTES = 10 * 1024 * 1024;
 
 export async function onRequestPost(context) {
+  try {
+    return await handle(context);
+  } catch (err) {
+    return new Response(`Erro interno: ${err && err.stack ? err.stack : err}`, { status: 500 });
+  }
+}
+
+async function handle(context) {
   const { request, env } = context;
 
   let formData;
