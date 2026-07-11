@@ -10,6 +10,14 @@ form.addEventListener("submit", async (event) => {
   status.textContent = "";
   status.className = "";
 
+  const nomeInput = document.getElementById("nome");
+  if (!nomeInput.value.trim()) {
+    status.textContent = "Preencha seu nome completo antes de enviar.";
+    status.className = "error";
+    nomeInput.focus();
+    return;
+  }
+
   const fileInput = document.getElementById("arquivos");
   if (fileInput.files.length > MAX_FILES) {
     status.textContent = `Envie no máximo ${MAX_FILES} arquivos.`;
